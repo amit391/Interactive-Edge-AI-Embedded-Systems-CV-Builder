@@ -1,0 +1,404 @@
+:root {
+    --primary: #1b3053;
+    --secondary: #3461b6;
+    --text-main: #1b3c69;
+    --text-muted: #64748b;
+    --sidebar-bg: #f8fafc;
+    --border-color: #e2e8f0;
+    --danger: #ef4444;
+    --success: #10b981;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f1f5f9;
+    color: var(--text-main);
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Form Sidebar Settings Workspace Container */
+.editor-panel {
+    width: 450px;
+    background-color: #ffffff;
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-shadow: 4px 0 10px rgba(0,0,0,0.05);
+    z-index: 10;
+}
+
+.editor-header {
+    padding: 20px;
+    background-color: var(--primary);
+    color: #ffffff;
+}
+
+.editor-header h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.editor-header p {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    margin-top: 4px;
+}
+
+.form-scroll-container {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.form-section {
+    margin-bottom: 25px;
+    background: #fafafa;
+    padding: 15px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+}
+
+.section-header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 4px;
+}
+
+.form-section h3 {
+    font-size: 0.95rem;
+    color: var(--secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0;
+}
+
+.form-group {
+    margin-bottom: 12px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 4px;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    color: var(--text-main);
+    font-family: inherit;
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--secondary);
+    background-color: #fff;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 60px;
+}
+
+/* Experience Block Custom Form Elements */
+.exp-block-form {
+    background: #ffffff;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.exp-block-form .btn-delete {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: none;
+    border: none;
+    color: var(--danger);
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+.action-bar {
+    padding: 15px 20px;
+    background-color: #f8fafc;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: var(--secondary);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #0d635c;
+}
+
+.btn-sm {
+    padding: 4px 8px;
+    font-size: 0.75rem;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.btn-success {
+    background-color: var(--success);
+    color: white;
+}
+
+.btn-success:hover {
+    background-color: #059669;
+}
+
+/* Live View Window Layout Section */
+.preview-panel {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    background-color: #e2e8f0;
+}
+
+/* Base A4 Print Reference Rules Structure */
+.cv-sheet {
+    width: 210mm;
+    min-height: 297mm;
+    background-color: #ffffff;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    padding: 40px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.25; 
+}
+
+.cv-header {
+    
+    border-bottom: 2px solid var(--primary);
+    padding-bottom: 13px;
+    margin-bottom: 13px;
+    margin-left: 15px;
+    margin-top: 15px;
+    align-items: flex-end;
+}
+
+.cv-name {
+    font-size: 1.9rem;
+    color: var(--primary);
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    text-transform: uppercase;
+}
+
+.cv-target {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 2px;
+    margin-bottom: 12px;
+}
+
+.cv-contacts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+    font-size: 0.80rem;
+    color: var(--primary);
+}
+
+/* Column Allocation Splitting Core Container */
+.cv-body {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 30px;
+    flex-grow: 1;
+}
+
+/* Left Sidebar Segment Layout rules */
+.cv-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 20px 15px;
+    border-radius: 6px;
+    
+    /* 🟢 CHANGE THIS LINE TO SET YOUR NEW BACKGROUND COLOR */
+    background-color: #f0f5f7; 
+}
+
+.cv-section-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+    padding-bottom: 4px;
+    border-bottom: 2px solid var(--primary);
+}
+
+.cv-skill-group {
+    margin-bottom: 12px;
+}
+
+.cv-skill-group h4 {
+    font-size: 0.78rem;
+    color: var(--primary);
+    text-transform: uppercase;
+    margin-bottom: 3px;
+    font-weight: 700;
+}
+
+.cv-skill-group p {
+    font-size: 0.78rem;
+    color: var(--text-main);
+    line-height: 1.35;
+}
+
+.cv-edu-item {
+    margin-bottom: 14px;
+}
+
+.cv-edu-degree {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.cv-edu-inst {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.cv-edu-meta {
+    font-size: 0.78rem;
+    color: var(--secondary);
+    font-weight: 500;
+}
+
+/* Right Main Work Timeline Content Block rules */
+.cv-main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.cv-summary {
+    font-size: 0.82rem;
+    color: var(--text-main);
+    line-height: 1.45;
+    text-align: justify;
+}
+
+.cv-exp-item {
+    margin-bottom: 16px;
+}
+
+.cv-exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 4px;
+}
+
+.cv-exp-title {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.cv-exp-meta {
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--secondary);
+}
+
+.cv-exp-date {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+.cv-exp-bullets {
+    list-style-type: disc;
+    padding-left: 16px;
+    font-size: 0.80rem;
+    color: var(--text-main);
+    line-height: 1.4;
+}
+
+.cv-exp-bullets li {
+    margin-bottom: 2px;
+}
+.cv-exp-item {
+    margin-bottom: 12px; /* Tightened timeline gaps from 16px */
+}
+
+/* System Print Engine Optimization Flags */
+@media print {
+    body {
+        overflow: visible;
+        background: white;
+    }
+    .editor-panel {
+        display: none !important;
+    }
+    .preview-panel {
+        padding: 0;
+        background: transparent;
+        overflow: visible;
+    }
+    .cv-sheet {
+        box-shadow: none;
+        padding: 0;
+        width: 210mm;
+        height: 297mm;
+        page-break-after: avoid;
+        page-break-inside: avoid;
+    }
+    @page {
+        margin: 0;
+    }
+}
+
+   
