@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Embedded AI & Firmware Engineer CV Builder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Configuration Workspace Sidebar Form -->
+    <div class="editor-panel">
+        <div class="editor-header">
+            <h2>CV Workspace Engine</h2>
+            <p>Update fields below to modify the standard layout in real time.</p>
+        </div>
+        
+        <div class="form-scroll-container">
+            <!-- Header Group -->
+            <div class="form-section">
+                <h3>Contact & Header</h3>
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="form-name"  value="Amit Kumar">
+                </div>
+                <div class="form-group">
+                    <label>Target Professional Title</label>
+                    <input type="text" id="form-target" value="Innovative Embedded AI & Firmware Engineer">
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="text" id="form-phone" value="+91 7678604618">
+                </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="text" id="form-email" value="amitsit2k11@gmail.com">
+                </div>
+                <div class="form-group">
+                    <label>Location Info</label>
+                    <input type="text" id="form-location" value="Nabinagar, Bihar, 824301">
+                </div>
+                <div class="form-group">
+                    <label>LinkedIn Link</label>
+                    <input type="text" id="form-linkedin" value="://linkedin.com">
+                </div>
+                <div class="form-group">
+                    <label>GitHub Link</label>
+                    <input type="text" id="form-github" value="://github.com">
+                </div>
+            </div>
+
+            <!-- Summary -->
+            <div class="form-section">
+                <h3>Professional Summary</h3>
+                <div class="form-group">
+                    <label>Profile Statement</label>
+                    <textarea id="form-summary">Innovative Embedded AI & Firmware Engineer combining 6+ years of core hardware design with specialized expertise in Edge ML and Computer Vision. Experienced in architecting robust firmware systems (RTOS, ARM, connectivity modules) while actively building real-time vision analytics, Flask-integrated AI surveillance, and trend prediction systems using PyTorch and YOLO frameworks. A versatile engineer passionate about optimizing deep learning algorithms to run efficiently on low-power, constrained edge nodes.</textarea>
+                </div>
+            </div>
+
+            <!-- Dynamic Professional Experience Section -->
+            <div class="form-section">
+                <div class="section-header-flex">
+                    <h3>Professional Experience</h3>
+                    <button class="btn-sm btn-success" id="add-exp-btn">+ Add Job</button>
+                </div>
+                <div id="experience-form-container">
+                    <!-- Form items injected dynamically via script.js -->
+                </div>
+            </div>
+
+            <!-- Technical Skills -->
+            <div class="form-section">
+                <h3>Core Technical Skills</h3>
+                <div class="form-group">
+                    <label>AI &MACHINE LEARNING:</label>
+                    <textarea id="form-skill-ai"> PyTorch, YOLOv5, YOLOv8, Computer Vision, OpenCV, Market Predictions.</textarea>
+                </div>
+                <div class="form-group">
+                    <label>EMBEDDED HARDWARE:</label>
+                    <textarea id="form-skill-hw">Raspberry Pi 3, ARM (LPC2148), AVR, ESP32 platforms.</textarea>
+                </div>
+                <div class="form-group">
+                    <label>PROTOCOLS & NETWORKS:</label>
+                    <textarea id="form-skill-net">RTOS, SPI, I2C, UART, Multi-layer Data Encryption, Wi-Fi Architecture.</textarea>
+                </div>
+                <div class="form-group">
+                    <label>TOOLS & FRAMEWORKS:</label>
+                    <textarea id="form-skill-tools">Flask, Git / SVN, Linux Internals, Testing & Debugging, Troubleshooting.</textarea>
+                </div>
+                <div class="form-group">
+                    <label>LANGUAGES & SCRIPTS:</label>
+                    <textarea id="form-skill-lang">Embedded C, C++, Python, HTML, CSS, Vanilla JavaScript</textarea>
+                </div>
+            </div>
+
+            <!-- Education -->
+            <div class="form-section">
+                <h3>Education Background</h3>
+                <div class="form-group">
+                    <label>Degree 1 Title & Year</label>
+                    <input type="text" id="form-edu1-deg" value="B.Tech (ECE) - 2015">
+                </div>
+                <div class="form-group">
+                    <label>Institution 1</label>
+                    <input type="text" id="form-edu1-inst" value="Silicon Institute of Technology (BPUT)">
+                </div>
+                <div class="form-group">
+                    <label>Score Metrics 1</label>
+                    <input type="text" id="form-edu1-meta" value="CGPA: 7.2/10">
+                </div>
+                <hr style="margin:10px 0; border:none; border-top:1px dashed var(--border-color);">
+                <div class="form-group">
+                    <label>Degree 2 Title & Year</label>
+                    <input type="text" id="form-edu2-deg" value="Class XII (PCM) - 2009">
+                </div>
+                <div class="form-group">
+                    <label>Institution 2</label>
+                    <input type="text" id="form-edu2-inst" value="J.M. College Bhurkunda (JAC)">
+                </div>
+                <div class="form-group">
+                    <label>Score Metrics 2</label>
+                    <input type="text" id="form-edu2-meta" value="Percentage: 60%">
+                </div>
+            </div>
+        </div>
+
+        <div class="action-bar">
+            <button class="btn btn-primary" id="print-btn">Print / Save PDF</button>
+        </div>
+    </div>
+
+    <!-- Live Preview Sheet Panel -->
+    <div class="preview-panel">
+        <div class="cv-sheet">
+            
+            <div class="cv-header">
+                <div class="cv-name" id="cv-name">Amit Kumar</div>
+                <div class="cv-target" id="cv-target">Innovative Embedded AI & Firmware Engineer</div>
+                <div class="cv-contacts">
+                    <span>■ <a id="cv-phone" href="tel:+917678604618">+91 7678604618</a></span>
+                    <span>■ <a id="cv-email" href="mailto:amitsit2k11@gmail.com">amitsit2k11@gmail.com</a></span>
+                    <span id="cv-location">■ Nabinagar, Bihar, 824301</span>
+                    <span>■ <a id="cv-linkedin" href="https://linkedin.com" target="_blank">://linkedin.com/in/amit-kumar-3890088</a></span>
+                    <span>■ <a id="cv-github" href="https://github.com" target="_blank">://github.com/amit391</a></span>
+                </div>
+            </div>
+
+            <div class="cv-body">
+                <div class="cv-sidebar">
+                    <div>
+                        <div class="cv-section-title">Core Skills</div>
+                        <div class="cv-skill-group">
+                            <h4>AI & MACHINE LEARNING:</h4>
+                            <p id="cv-skill-ai">PyTorch, YOLOv5, YOLOv8, Computer Vision, OpenCV, Market Predictions.</p>
+                        </div>
+                        <div class="cv-skill-group">
+                            <h4>EMBEDDED HARDWARE:</h4>
+                            <p id="cv-skill-hw"> Raspberry Pi 3, ARM (LPC2148), AVR, ESP32 platforms.</p>
+                        </div>
+                        <div class="cv-skill-group">
+                            <h4>PROTOCOLS & NETWORKS:</h4>
+                            <p id="cv-skill-net">RTOS, SPI, I2C, UART, Multi-layer Data Encryption, Wi-Fi Architecture.</p>
+                        </div>
+                        <div class="cv-skill-group">
+                            <h4>TOOLS & FRAMEWORKS:</h4>
+                            <p id="cv-skill-tools">Flask, Git / SVN, Linux Internals, Systems Testing, Debugging</p>
+                        </div>
+                        <div class="cv-skill-group">
+                            <h4>LANGUAGE & SCRIPTS:</h4>
+                            <p id="cv-skill-lang">Embedded C, C++, Python, HTML, CSS, Vanilla JavaScript</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="cv-section-title">Education</div>
+                        <div class="cv-edu-item">
+                            <div class="cv-edu-degree" id="cv-edu1-deg">B.Tech (ECE) - 2015</div>
+                            <div class="cv-edu-inst" id="cv-edu1-inst">Silicon Institute of Technology (BPUT)</div>
+                            <div class="cv-edu-meta" id="cv-edu1-meta">CGPA: 7.2/10</div>
+                        </div>
+                        <div class="cv-edu-item">
+                            <div class="cv-edu-degree" id="cv-edu2-deg">Class XII (PCM) - 2009</div>
+                            <div class="cv-edu-inst" id="cv-edu2-inst">J.M. College Bhurkunda (JAC)</div>
+                            <div class="cv-edu-meta" id="cv-edu2-meta">Percentage: 60%</div>
+                        </div>
+                        <div class="cv-edu-item">
+                            <div class="cv-edu-degree">Class X - 2007</div>
+                            <div class="cv-edu-inst">Bhurkunda High School (JAC)</div>
+                            <div class="cv-edu-meta">Percentage: 67%</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cv-main-content">
+                    <div>
+                        <div class="cv-section-title">Professional Summary</div>
+                        <p class="cv-summary" id="cv-summary">Innovative Embedded AI & Firmware Engineer with over 6 years of experience bridging hardware architecture and computer vision. Proven track record deploying real-time YOLO analytics and PyTorch ML models onto resource-constrained edge stacks, while mastering low-level RTOS firmware optimization.</p>
+                            </div>
+                            <div>
+                                <div class="cv-section-title">Professional Experience</div>
+                                <div id="cv-experience-container">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    </body>
+</html>    
