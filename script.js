@@ -6,11 +6,11 @@ document.addEventListener('DOMContentLoaded', () => {
             title: "Freelance Edge AI & ML Engineer",
             meta: "Remote",
             date: "Apr 2024 – Present",
-            bullets: `AI Surveillance Architecture: Designed a multi-camera AI surveillance system integrated with Flask and YOLOv8 for optimized real-time edge processing (://github.com/amit391/Multi-Camera-AI-Surveillance-System-Flask-YOLOv8-).
-            \nReal-Time Object Detection: Developed high-throughput object detection applications using the YOLOv5 framework, focusing on model efficiency on target hardware platforms (://github.com/amit391/Real-Time-Object-detection-using-Yolov5).
+            bullets: `AI Surveillance Architecture: Designed a multi-camera AI surveillance system integrated with Flask and YOLOv8 for optimized real-time edge processing (https://github.com/amit391/Multi-Camera-AI-Surveillance-System-Flask-YOLOv8-).
+            \nReal-Time Object Detection: Developed high-throughput object detection applications using the YOLOv5 framework, focusing on model efficiency on target hardware platforms (https://github.com/amit391/Real-Time-Object-detection-using-Yolov5).
             \nPredictive Analytics: Built a market trend prediction and recommendation system utilizing Python and the PyTorch deep learning framework (https://github.com/amit391/Market-trend-prediction).
             \nComputer Vision Systems: Created an interactive 360-degree panorama photo stitcher(https://github.com/amit391/360-Panorama-Photo-Stitcher-Viewer)
-            \nVideo Streaming: chat server utilizing haarcascade_frontalface for efficient edge detection (://github.com/amit391/Real-Time-Video-Streaming-Chat-Server).`
+            \nVideo Streaming: chat server utilizing haarcascade_frontalface for efficient edge detection (https://github.com/amit391/Real-Time-Video-Streaming-Chat-Server).`
         },
         {
             title: "Technical Trainer",
@@ -191,7 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
         renderCVPreviewOnly();
     }
 
-    function bindInputSyncEvents() {
+    /*function bindInputSyncEvents() {
         // Handle deletion triggers
         document.querySelectorAll('.btn-delete').forEach(button => {
             button.addEventListener('click', (event) => {
@@ -220,7 +220,47 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             });
         });
+    } */
+
+
+        function bindInputSyncEvents() {
+        // Handle deletion triggers
+            document.querySelectorAll('.btn-delete').forEach(button => {
+                button.removeEventListener('click', handleDelete); // Clean old event layers
+                button.addEventListener('click', handleDelete);
+            });
+
+            const inputFieldsConfig = [
+                { selector: '.exp-input-title', key: 'title' },
+                { selector: '.exp-input-meta', key: 'meta' },
+                { selector: '.exp-input-date', key: 'date' },
+                { selector: '.exp-input-bullets', key: 'bullets' }
+            ];
+
+            inputFieldsConfig.forEach(config => {
+                // 🟢 FIX: Explicitly target controls inside the experience container to stop interference from contact forms
+                formExperienceContainer.querySelectorAll(config.selector).forEach(field => {
+                // Remove any pre-existing listeners before attaching a clean one
+                    field.replaceWith(field.cloneNode(true)); 
+                });
+        
+            formExperienceContainer.querySelectorAll(config.selector).forEach(field => {
+                field.addEventListener('input', (event) => {
+                    const activeIndex = parseInt(event.target.getAttribute('data-index'));
+                    if (!isNaN(activeIndex) && experienceData[activeIndex]) {
+                        experienceData[activeIndex][config.key] = event.target.value;
+                        renderCVPreviewOnly(); // Dynamically updates preview layout canvas
+                    }
+                });
+            });
+        });
     }
+    function handleDelete(event) {
+        const targetIdx = parseInt(event.target.getAttribute('data-index'));
+        experienceData.splice(targetIdx, 1);
+        fullSyncAndRender();
+    }
+
     // Add new job item block
     if (addNewExperienceButton) {
         addNewExperienceButton.addEventListener('click', () => {
